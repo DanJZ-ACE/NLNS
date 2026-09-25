@@ -56,6 +56,8 @@ NLNS never loads or executes the detected DLLs.
 DLSS components are not always located beside the main game executable.
 
 NLNS scans recursively through the selected game directory, including nested locations such as:
+## Screenshot
 
+![NLNS interface](components.png)
 ```text
 NVStreamline\production
