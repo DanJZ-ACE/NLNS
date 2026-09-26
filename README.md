@@ -240,6 +240,23 @@ The initial release includes:
 - Offline operation
 - Portable Windows executable
 
+## Build from source
+
+The complete original September 12, 2026 NLNS source, tests, documentation, and original icon assets are now available in this repository under the existing [MIT license](LICENSE).
+
+On Windows 10/11 with .NET Framework 4.8 or later, run from the repository root in PowerShell:
+
+```powershell
+./build.ps1          # creates release/NLNS.exe
+./build.ps1 -Test    # builds and runs 23 synthetic backend and WinForms checks
+```
+
+No NuGet packages or downloaded dependencies are required. The script uses the Windows-provided .NET Framework C# compiler and regenerates the icon using `tools/IconBuilder.cs`. Run UI tests in an interactive Windows session; they use the clipboard and regenerate test screenshots. If script policy blocks execution, use a PowerShell environment permitted by your local policy.
+
+Alternatively, open `src/NLNS.csproj` in Visual Studio with the .NET Framework 4.8 targeting pack. The validated command-line build is `build.ps1`; the Visual Studio build was not revalidated during source publication.
+
+The recovered source was published without application, test, or build-script changes. The rebuilt executable differs from v1.0.0 only in compiler-generated identifiers and the PE build timestamp; it is not byte-for-byte reproducible. Existing [v1.0.0 release assets](https://github.com/DanJZ-ACE/NLNS/releases/tag/v1.0.0) remain unchanged. See the [source publication verification](docs/SOURCE_PUBLICATION.md), [architecture](docs/ARCHITECTURE.md), [recovery guidance](docs/RECOVERY.md), and [provenance](docs/PROVENANCE.md).
+
 ## License
 
 NLNS is licensed under the [MIT License](LICENSE).
